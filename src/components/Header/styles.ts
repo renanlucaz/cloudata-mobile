@@ -4,7 +4,8 @@ import { Colors } from "react-native/Libraries/NewAppScreen";
 export const styles = StyleSheet.create({
     container: {
         backgroundColor: Colors.primary,
-        padding: 40,
+        paddingTop: 20,
+        paddingBottom: 50,
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "row",
@@ -18,6 +19,7 @@ export const styles = StyleSheet.create({
     },
     menu: {
         position: "absolute",
+        top: 20,
         left: 20,
     }
 })

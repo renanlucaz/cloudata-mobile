@@ -3,10 +3,12 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        backgroundColor: Colors.background
+        backgroundColor: Colors.primary,
     },
     content: {
+        backgroundColor: Colors.background,
+    },
+    info: {
         marginHorizontal: 20,
     },
     dashboardTitleContainer: {

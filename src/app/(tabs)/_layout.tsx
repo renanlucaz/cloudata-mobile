@@ -1,6 +1,8 @@
 import { Tabs } from "expo-router";
 import Feather from '@expo/vector-icons/Feather';
 import Octicons from '@expo/vector-icons/Octicons';
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import Ionicons from '@expo/vector-icons/Ionicons';
 import { Colors } from "@/src/constants/Colors";
 
 export default function TabLayout() {
@@ -10,8 +12,8 @@ export default function TabLayout() {
             headerShown: false,
             tabBarActiveTintColor: Colors.primary,
             tabBarStyle: {
-                padding: 10,
-                height: 90
+                height: 90,
+                padding: 0
             },
          }}>
             <Tabs.Screen
@@ -27,6 +29,20 @@ export default function TabLayout() {
                 options={{
                     title: 'Previsões',
                     tabBarIcon: ({ color }) => <Feather name="list" size={24} color={color}  />,
+                }}
+            />
+            <Tabs.Screen
+                name="radar"
+                options={{
+                    title: 'Radar',
+                    tabBarIcon: ({ color }) => <MaterialCommunityIcons name="radar" size={24} color={color} />,
+                }}
+            />
+            <Tabs.Screen
+                name="profile"
+                options={{
+                    title: 'Perfil',
+                    tabBarIcon: ({ color }) => <Ionicons name="person" size={22} color={color}/>,
                 }}
             />
         </Tabs>
