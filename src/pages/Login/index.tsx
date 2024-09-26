@@ -1,8 +1,11 @@
 import React from "react"
 import { View , Text} from "react-native"
+import { router } from "expo-router"
+
 import { Input } from "../../components/Input"
 import { Button } from "../../components/Button"
 import { styles } from "./styles"
+import { StatusBar } from "expo-status-bar"
 
 export default function Login() {
     return (
@@ -16,7 +19,7 @@ export default function Login() {
                 <View style={styles.formFields}>
                     <Input title="E-mail" value="123" />
                     <Input title="Senha" value="123" />
-                    <Button title="Login" onPress={() => {}} />
+                    <Button title="Login" onPress={() => router.replace('/dashboard')} />
                 </View>
                 <View style={styles.terms}>
                     <Text style={styles.termsText}>
