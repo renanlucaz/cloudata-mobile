@@ -12,5 +12,25 @@ export const styles = StyleSheet.create({
     },
     input: {
         marginTop: -48
+    },
+    results: {
+        marginHorizontal: 20,
+        textAlign: "center",
+        alignItems: "center",
+        flexDirection: "row",
+    },
+    resultsText: {
+        color: "#949398",
+        marginHorizontal: 10
+    },
+    list: {
+        marginHorizontal: 20,
+        marginTop: 15,
+        gap: 10
+    },
+    line: {
+        borderWidth: 0.5,
+        borderColor: "#DAD7E0",
+        flex: 1
     }
 })
