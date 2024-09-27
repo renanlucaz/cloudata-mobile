@@ -2,12 +2,13 @@ import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import * as Progress from "react-native-progress";
 import { styles } from "./styles";
+import { router } from "expo-router";
 
 export const RiskCard = () => {
   const riskPercentage = 0.95; // 95%
 
   return (
-    <TouchableOpacity style={styles.card}>
+    <TouchableOpacity style={styles.card} onPress={() => router.replace('/risk-details')}>
       <View style={styles.infoContainer}>
         <Text style={styles.title}>SUMARÉ SÃO PAULO - SP</Text>
         <Text style={styles.address}>R. Riachuelo, 231 - Sé, São Paulo.</Text>

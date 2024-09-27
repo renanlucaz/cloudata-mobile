@@ -6,10 +6,11 @@ export const styles = StyleSheet.create({
         backgroundColor: Colors.primary,
         alignItems: "center",
         justifyContent: "center",
-        padding: 10,
+        padding: 16,
         borderRadius: 8
     },
     buttonText: {
-        color: "#fff"
+        color: "#fff",
+        fontWeight: "700"
     },
 })

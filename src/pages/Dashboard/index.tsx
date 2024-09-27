@@ -79,9 +79,6 @@ export function DashboardPage() {
                             icon={<Feather name="map" size={22} color={Colors.primary} />}
                         />
                     </View>
-                    <View style={styles.news}>
-                        
-                    </View>
                 </View>
             </View>
         </SafeAreaView>

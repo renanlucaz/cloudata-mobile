@@ -3,10 +3,12 @@ import { SafeAreaView, Text, View } from "react-native";
 import { styles } from "./styles";
 import { Select } from "@/src/components/Select";
 import { RiskCard } from "@/src/components/RiskCard";
+import { StatusBar } from "expo-status-bar";
 
 export function PrevisionsPage() {
     return (
         <SafeAreaView style={styles.container}>
+            <StatusBar style="light" />
             <View style={styles.content} >
                 <Header title="Monitoramentos" />
                 <View style={styles.input}>
