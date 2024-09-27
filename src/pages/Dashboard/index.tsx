@@ -8,6 +8,7 @@ import { Header } from "@/src/components/Header";
 import { Colors } from "react-native/Libraries/NewAppScreen";
 import { ActionButton } from "@/src/components/ActionButton";
 import { StatusBar } from "expo-status-bar";
+import { router } from "expo-router";
 
 export function DashboardPage() {
     return (
@@ -45,10 +46,10 @@ export function DashboardPage() {
                             <View style={styles.dashboardRowItem}>
                                 <Text style={styles.dashboardRowTitle}>Porcentagem geral de risco</Text>
                                 <View style={styles.progressBarContainer}>
-                                    <Progress.Bar 
-                                        progress={0.4} 
-                                        color={Colors.primary} 
-                                        style={styles.progressBar} 
+                                    <Progress.Bar
+                                        progress={0.4}
+                                        color={Colors.primary}
+                                        style={styles.progressBar}
                                         height={32}
                                         width={300}
                                         borderRadius={32}
@@ -58,24 +59,24 @@ export function DashboardPage() {
                         </View>
                     </View>
                     <View style={styles.actions}>
-                        <ActionButton 
-                            title="Histórico de previsões" 
-                            action={() => {}} 
+                        <ActionButton
+                            title="Histórico de previsões"
+                            action={() => router.replace('/previsions')}
                             icon={<MaterialCommunityIcons name="history" size={28} color={Colors.primary} />}
                         />
-                        <ActionButton 
-                            title="Monitorar novo local" 
-                            action={() => {}} 
+                        <ActionButton
+                            title="Monitorar novo local"
+                            action={() => router.replace('/new-monitoring')}
                             icon={<MaterialCommunityIcons name="weather-rainy" size={28} color={Colors.primary} />}
                         />
-                        <ActionButton 
-                            title="Áreas de risco" 
-                            action={() => {}} 
+                        <ActionButton
+                            title="Áreas de risco"
+                            action={() => router.replace('/radar')}
                             icon={<Feather name="search" size={24} color={Colors.primary} />}
                         />
-                        <ActionButton 
-                            title="Visualizar mapa" 
-                            action={() => {}} 
+                        <ActionButton
+                            title="Visualizar mapa"
+                            action={() => router.replace('/radar')}
                             icon={<Feather name="map" size={22} color={Colors.primary} />}
                         />
                     </View>

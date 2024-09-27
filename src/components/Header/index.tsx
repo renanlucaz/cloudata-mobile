@@ -13,11 +13,11 @@ export function Header({ title, backType }: HeaderProps) {
     return (
         <View style={styles.container}>
             {backType ? (
-                <TouchableOpacity style={styles.menu} onPress={() => router.replace("/previsions")}>
+                <TouchableOpacity style={styles.menu} onPress={() => router.replace("/dashboard")}>
                     <FontAwesome name="long-arrow-left" size={24} color="#fff" />
                 </TouchableOpacity>
             ) : (
-                <Entypo name="menu"size={32} color={'#fff'} style={styles.menu} />
+                <Entypo name="menu" size={32} color={'#fff'} style={styles.menu} />
             )}
             <Text style={styles.title}>{title}</Text>
         </View>
