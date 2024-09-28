@@ -1,13 +1,15 @@
-import React from "react"
-import { View , Text} from "react-native"
+import React, { useEffect } from "react"
+import { View, Text } from "react-native"
 import { router } from "expo-router"
 
 import { Input } from "../../components/Input"
 import { Button } from "../../components/Button"
 import { styles } from "./styles"
-import { StatusBar } from "expo-status-bar"
+import { useLoginMutation } from "@/src/features/Auth/auth"
 
 export default function Login() {
+    const [login] = useLoginMutation();
+
     return (
         <View style={styles.container}>
             <View style={styles.logoContainer}>
@@ -23,8 +25,8 @@ export default function Login() {
                 </View>
                 <View style={styles.terms}>
                     <Text style={styles.termsText}>
-                        Clicando em entrar você concorda com nossos 
-                        <Text style={styles.termsTextBold}> Termos de Serviço </Text> 
+                        Clicando em entrar você concorda com nossos
+                        <Text style={styles.termsTextBold}> Termos de Serviço </Text>
                         e <Text style={styles.termsTextBold}>Políticas de Privacidade</Text>.
                     </Text>
                 </View>
