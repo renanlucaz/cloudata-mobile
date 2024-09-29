@@ -3,14 +3,19 @@ import * as Progress from 'react-native-progress';
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import Feather from '@expo/vector-icons/Feather';
-import { styles } from "./styles";
 import { Header } from "@/src/components/Header";
 import { Colors } from "react-native/Libraries/NewAppScreen";
 import { ActionButton } from "@/src/components/ActionButton";
 import { StatusBar } from "expo-status-bar";
 import { router } from "expo-router";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store"
+
+import { styles } from "./styles";
 
 export function DashboardPage() {
+    const state = useSelector((state: RootState) => state.auth)
+
     return (
         <SafeAreaView style={styles.container}>
             <StatusBar style="light" />

@@ -3,17 +3,16 @@ import type { PayloadAction } from '@reduxjs/toolkit'
 
 interface User {
     email: string
-    password: string
 }
 
 interface AuthState {
-    token: string | null
+    accessToken: string | null
     isLogged: boolean
     user: User | null
 }
 
 const initialState: AuthState = {
-    token: null,
+    accessToken: null,
     isLogged: false,
     user: null
 }
@@ -22,10 +21,10 @@ export const authSlice = createSlice({
     name: 'login',
     initialState,
     reducers: {
-        login: (state, action: PayloadAction<{ jwtToken: string, user: User }>) => {
-            const { jwtToken, user } = action.payload
+        login: (state, action: PayloadAction<{ accessToken: string, user: User }>) => {
+            const { accessToken, user } = action.payload
 
-            state.token = jwtToken
+            state.accessToken = accessToken
             state.isLogged = true
             state.user = user
         },

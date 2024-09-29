@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Dispatch, SetStateAction, useState } from "react";
 import {
   View,
   Text,
@@ -9,19 +9,22 @@ import {
 import { styles } from "./styles"
 import Entypo from '@expo/vector-icons/Entypo';
 
-export function Select()  {
-  const [selectedOption, setSelectedOption] = useState(
-    "Av. Paulista, 1002. São Paulo - SP"
-  );
+
+interface Option {
+  id: string;
+  label: string
+}
+
+interface SelectInterface {
+  options: Option[]
+  selectedOption: Option | null
+  setSelectedOption: Dispatch<SetStateAction<Option | null>>
+}
+
+export function Select({ options, selectedOption, setSelectedOption }: SelectInterface) {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
-  const options = [
-    "Av. Paulista, 1002. São Paulo - SP",
-    "Rua Augusta, 1500. São Paulo - SP",
-    "Av. Faria Lima, 1200. São Paulo - SP",
-  ];
-
-  const handleOptionSelect = (option: string) => {
+  const handleOptionSelect = (option: Option) => {
     setSelectedOption(option);
     setIsModalVisible(false);
   };
@@ -32,13 +35,17 @@ export function Select()  {
         style={styles.selectBox}
         onPress={() => setIsModalVisible(true)}
       >
-        <Text style={styles.selectedText}>{selectedOption}</Text>
+        {selectedOption ? (
+          <Text style={styles.selectedText}>{selectedOption.label}</Text>
+        ) : (
+          <Text style={styles.selectedText}>Selecionar</Text>
+        )}
         <Text style={styles.arrow}>
-            {isModalVisible ? 
-              <Entypo name="chevron-small-up" size={24} color="#BEBCCC" /> : 
-              <Entypo name="chevron-small-down" size={24} color="#BEBCCC" />
-            }
-          </Text>
+          {isModalVisible ?
+            <Entypo name="chevron-small-up" size={24} color="#BEBCCC" /> :
+            <Entypo name="chevron-small-down" size={24} color="#BEBCCC" />
+          }
+        </Text>
       </TouchableOpacity>
 
       {/* Modal for dropdown options */}
@@ -55,13 +62,13 @@ export function Select()  {
           <View style={styles.modalContainer}>
             <FlatList
               data={options}
-              keyExtractor={(item) => item}
+              keyExtractor={(item) => item.id}
               renderItem={({ item }) => (
                 <TouchableOpacity
                   style={styles.option}
                   onPress={() => handleOptionSelect(item)}
                 >
-                  <Text style={styles.optionText}>{item}</Text>
+                  <Text style={styles.optionText}>{item.label}</Text>
                 </TouchableOpacity>
               )}
             />

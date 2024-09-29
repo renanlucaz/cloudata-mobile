@@ -27,8 +27,6 @@ export function NewMonitoringPage() {
     })
     const { data, isFetching } = useGetAddressByCEPQuery("pikachu")
 
-    console.log(data)
-
     function updateAddress(type: string, value: string) {
         setAddress((prevState => {
             return { ...prevState, [type]: value }
@@ -36,7 +34,6 @@ export function NewMonitoringPage() {
     }
 
     useEffect(() => {
-        console.log(data)
         // setAddress({  })
     }, [address, data])
 

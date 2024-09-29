@@ -1,13 +1,17 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import { baseQuery } from '@/src/store/baseQuery';
+import { createApi } from '@reduxjs/toolkit/query/react'
 
 export const addressApi = createApi({
     reducerPath: 'addressApi',
-    baseQuery: fetchBaseQuery({ baseUrl: 'https://pokeapi.co/api/v2/pokemon' }),
+    baseQuery,
     endpoints: (builder) => ({
-        getAddressByCEP: builder.query<any, string>({
-            query: (cep) => `${cep}`,
-        }),
-    }),
+        getAddressList: builder.query<any, any>({
+            query: () => ({
+                url: '/address',
+                method: 'GET',
+            })
+        })
+    })
 })
 
-export const { useGetAddressByCEPQuery } = addressApi
+export const { useGetAddressListQuery } = addressApi

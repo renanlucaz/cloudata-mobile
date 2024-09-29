@@ -1,16 +1,21 @@
 import React from "react";
-import { ButtonProps, Text, TouchableOpacity } from "react-native";
+import { ActivityIndicator, ButtonProps, Text, TouchableOpacity } from "react-native";
 import { styles } from "./styles";
 
-interface AppButtonProps extends ButtonProps{
+interface AppButtonProps extends ButtonProps {
     title: string;
     onPress: () => void;
+    isLoading?: boolean;
 }
 
-export function Button({title, onPress, ...props}: AppButtonProps) {
+export function Button({ title, onPress, isLoading, ...props }: AppButtonProps) {
     return (
         <TouchableOpacity onPress={onPress} style={styles.container} {...props}>
-            <Text style={styles.buttonText}>{title}</Text>
+            <Text style={styles.buttonText}>
+                {isLoading ? (
+                    <ActivityIndicator color={"#fff"} size="small" />
+                ) : title}
+            </Text>
         </TouchableOpacity>
     )
 }
