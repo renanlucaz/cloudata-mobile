@@ -1,12 +1,11 @@
 import React, { useMemo } from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
 import * as Progress from "react-native-progress";
 import { styles } from "./styles";
-import { router, useNavigation } from "expo-router";
+import { router } from "expo-router";
 
 export const RiskCard = ({ record }: any) => {
   const riskPercentage = record.rainProb / 100;
-  const navigation = useNavigation()
 
   const getRisk = useMemo((): { text: string, color: string } => {
     if (riskPercentage < 0.25) {
@@ -21,7 +20,7 @@ export const RiskCard = ({ record }: any) => {
   }, [riskPercentage])
 
   return (
-    <TouchableOpacity style={styles.card} onPress={() => navigation.navigate(`/details/${record.id}`)}>
+    <TouchableOpacity style={styles.card} onPress={() => router.replace(`/details/${record.id}`)}>
       <View style={styles.infoContainer}>
         <Text style={styles.title}>{new Date(record.registerDate).toLocaleDateString()}</Text>
         <Text style={styles.address} numberOfLines={2}>{record.description}</Text>

@@ -38,7 +38,7 @@ export function RadarPage() {
                             latitude: alert.latitude,
                             longitude: alert.longitude,
                         }}
-                        radius={600}
+                        radius={800}
                         key={alert.latitude}
                         strokeColor={alert.color}
                         fillColor={alert.color}

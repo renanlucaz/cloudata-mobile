@@ -1,10 +1,10 @@
 import { RiskDetailsPage } from "@/src/pages/RiskDetails";
-import { useGlobalSearchParams, useLocalSearchParams, useNavigation } from "expo-router";
+import { useLocalSearchParams } from "expo-router";
 
 export default function RiskDetails() {
-    const local = useLocalSearchParams();
+    const { id } = useLocalSearchParams();
 
     return (
-        <RiskDetailsPage />
+        <RiskDetailsPage riskId={id} />
     )
 }

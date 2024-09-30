@@ -1,5 +1,5 @@
 import { Header } from "@/src/components/Header";
-import { SafeAreaView, View } from "react-native";
+import { ActivityIndicator, SafeAreaView, View } from "react-native";
 import { styles } from "./styles";
 import { StatusBar } from "expo-status-bar";
 import { Input } from "@/src/components/Input";
@@ -9,6 +9,7 @@ import { useGetAddressByCEPQuery, useNewAddressMutation } from "@/src/features/A
 import { useCreateMeteorologicRecordMutation } from "@/src/features/MeteorologicRecords";
 import { router } from "expo-router";
 import Toast from "react-native-toast-message";
+import { Colors } from "@/src/constants/Colors";
 
 interface AddressInterface {
     cep: string
@@ -35,7 +36,7 @@ export function NewMonitoringPage() {
     })
     const [createMeteorologicRecord] = useCreateMeteorologicRecordMutation()
     const [newAddress] = useNewAddressMutation()
-    const { data: addressByCEP } = useGetAddressByCEPQuery(address.cep, { skip: address.cep.length < 8 })
+    const { data: addressByCEP, isFetching } = useGetAddressByCEPQuery(address.cep, { skip: address.cep.length < 8 })
 
     function updateAddress(type: string, value: string) {
         setAddress((prevState => {
@@ -112,8 +113,21 @@ export function NewMonitoringPage() {
                 <StatusBar style="light" />
                 <Header title="Monitorar endereço" backType />
                 <View style={styles.form}>
-                    <Input title="CEP" value={address.cep} onChangeText={(text) => updateAddress('cep', text)} />
+                    <View style={styles.cepInput}>
+                        <Input title="CEP" value={address.cep} onChangeText={(text) => updateAddress('cep', text)} />
+                        {isFetching && <ActivityIndicator style={styles.loading} color={Colors.primary} />}
+                    </View>
+
                     <View style={styles.address}>
+                        <View style={styles.line}>
+                            <View style={{ width: "48%" }}>
+                                <Input title="Latitude" value={address.latitude.toString()} onChangeText={(text) => updateAddress('latitude', text)} />
+                            </View>
+                            <View style={{ width: "48%" }}>
+                                <Input title="Longitude" value={address.longitude.toString()} />
+                            </View>
+                        </View>
+
                         <Input title="Rua" value={address.street} onChangeText={(text) => updateAddress('street', text)} />
                         <Input title="Bairro" value={address.neightborhood} onChangeText={(text) => updateAddress('neightborhood', text)} />
                         <Input title="Cidade" value={address.city} onChangeText={(text) => updateAddress('city', text)} />

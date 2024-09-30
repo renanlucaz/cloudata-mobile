@@ -12,7 +12,7 @@ export const meteorologicRecordApi = createApi({
                 method: 'GET',
             }),
             providesTags: ['MeteorologicRecords'],
-            transformResponse: (response) => response.meteorologicRecords
+            transformResponse: (response: any) => response.meteorologicRecords
         }),
         createMeteorologicRecord: builder.mutation({
             query: ({ localeId }) => ({
@@ -23,8 +23,15 @@ export const meteorologicRecordApi = createApi({
                 }
             }),
             invalidatesTags: ['MeteorologicRecords', 'Address'],
-        })
+        }),
+        getMeteorologicRecordDetails: builder.query<any, any>({
+            query: (meteorologicRecordId: string) => ({
+                url: `/meteorologic-records/details/${meteorologicRecordId}`,
+                method: 'GET',
+            }),
+            providesTags: ['MeteorologicRecords'],
+        }),
     })
 })
 
-export const { useGetMeteorologicRecordListQuery, useCreateMeteorologicRecordMutation } = meteorologicRecordApi
+export const { useGetMeteorologicRecordListQuery, useCreateMeteorologicRecordMutation, useGetMeteorologicRecordDetailsQuery } = meteorologicRecordApi
