@@ -11,7 +11,9 @@ export const styles = StyleSheet.create({
         height: "100%"
     },
     header: {
-        paddingBottom: 15,
+        position: 'relative',
+        paddingBottom: 5,
+        paddingLeft: 55,
         backgroundColor: "#fff",
         paddingHorizontal: 20,
         flexDirection: "row",
@@ -19,6 +21,11 @@ export const styles = StyleSheet.create({
         alignItems: "center",
         borderBottomColor: "#ccc",
         borderBottomWidth: 1
+    },
+    icon: {
+        position: "absolute",
+        top: 12,
+        left: 28
     },
     headerText: {
         fontSize: 18,
