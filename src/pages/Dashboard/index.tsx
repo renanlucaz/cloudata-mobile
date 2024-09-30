@@ -30,21 +30,21 @@ export function DashboardPage() {
                         <View style={styles.dashboardRow}>
                             <View style={styles.dashboardRowItem}>
                                 <Text style={styles.dashboardRowTitle}>Total de previsöes</Text>
-                                <Text>159</Text>
+                                <Text>10</Text>
                             </View>
                             <View style={styles.dashboardRowItem}>
                                 <Text style={styles.dashboardRowTitle}>Risco de alagamento</Text>
-                                <Text>12</Text>
+                                <Text>0</Text>
                             </View>
                         </View>
                         <View style={styles.dashboardRow}>
                             <View style={styles.dashboardRowItem}>
                                 <Text style={styles.dashboardRowTitle}>Endereços monitorados</Text>
-                                <Text>159</Text>
+                                <Text>2</Text>
                             </View>
                             <View style={styles.dashboardRowItem}>
                                 <Text style={styles.dashboardRowTitle}>Alto risco de chuva</Text>
-                                <Text>12</Text>
+                                <Text>4</Text>
                             </View>
                         </View>
                         <View style={styles.dashboardRow}>

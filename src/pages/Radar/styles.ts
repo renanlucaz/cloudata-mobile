@@ -30,5 +30,8 @@ export const styles = StyleSheet.create({
     pin: {
         maxHeight: 20,
         maxWidth: 20,
+        borderColor: Colors.primary,
+        borderWidth: 2,
+        borderRadius: 5
     }
 })

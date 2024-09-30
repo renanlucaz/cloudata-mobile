@@ -9,6 +9,6 @@ interface AppInputProps extends TextInputProps {
 
 export function Input({ title, value, onChange, ...props }: AppInputProps) {
     return (
-        <TextInput style={styles.input} placeholder={title} {...props} />
+        <TextInput style={styles.input} value={value} placeholder={title} {...props} />
     )
 }
