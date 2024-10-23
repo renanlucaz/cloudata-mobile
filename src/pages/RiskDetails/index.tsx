@@ -18,7 +18,7 @@ export function RiskDetailsPage({ riskId }: { riskId: string | string[] }) {
       <View style={styles.content}>
         <Header title="Detalhes" backType />
         {isFetching ? (
-          <ActivityIndicator color={Colors.primary} />
+          <ActivityIndicator color={Colors.primary} style={{ marginTop: 40 }} />
         ) : (
           <View style={styles.cardContainer}>
             <View style={styles.card}>

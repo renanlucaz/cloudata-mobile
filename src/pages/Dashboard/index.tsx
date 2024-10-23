@@ -34,7 +34,7 @@ export function DashboardPage() {
                             </View>
                             <View style={styles.dashboardRowItem}>
                                 <Text style={styles.dashboardRowTitle}>Risco de alagamento</Text>
-                                <Text>0</Text>
+                                <Text>1</Text>
                             </View>
                         </View>
                         <View style={styles.dashboardRow}>

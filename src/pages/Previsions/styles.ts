@@ -1,3 +1,4 @@
+import { FloodRisk } from "@/src/components/FloodRisk";
 import { Colors } from "@/src/constants/Colors";
 import { StyleSheet } from "react-native";
 
@@ -20,17 +21,19 @@ export const styles = StyleSheet.create({
         flexDirection: "row",
     },
     resultsText: {
-        color: "#949398",
+        color: "#666",
         marginHorizontal: 10
     },
     list: {
         marginHorizontal: 20,
         marginTop: 15,
-        gap: 10
     },
     line: {
         borderWidth: 0.5,
         borderColor: "#DAD7E0",
         flex: 1
+    },
+    floodRisk: {
+        marginHorizontal: 20,
     }
 })
