@@ -8,6 +8,9 @@ import { StatusBar } from "expo-status-bar";
 import { transformAddress } from "@/src/utils/transformAddress";
 import { useState } from "react";
 import { useGetMeteorologicRecordListQuery } from "@/src/features/MeteorologicRecords";
+import { FloodRisk } from "@/src/components/FloodRisk";
+import { useGetFloodRiskListQuery } from "@/src/features/FloodRisk";
+import { Colors } from "@/src/constants/Colors";
 
 interface Option {
     id: string;
@@ -20,6 +23,9 @@ export function PrevisionsPage() {
     const { data: meteorologicRecords, isFetching } = useGetMeteorologicRecordListQuery(selectedOption?.id, {
         skip: !selectedOption
     });
+    const { data: floodRisk, isFetching: isFloodRiskLoading } = useGetFloodRiskListQuery(selectedOption?.id, {
+        skip: !selectedOption
+    })
 
     const addressList = address?.map((address: any) => ({ id: address.id, label: transformAddress(address) }))
 
@@ -30,6 +36,11 @@ export function PrevisionsPage() {
                 <Header title="Monitoramentos" />
                 <View style={styles.input}>
                     <Select options={addressList} selectedOption={selectedOption} setSelectedOption={setSelectedOption} />
+                </View>
+
+                <View style={styles.floodRisk}>
+                    {isFloodRiskLoading && <ActivityIndicator color={Colors.primary} style={{ marginBottom: 20 }} />}
+                    {floodRisk?.level > 1 && <FloodRisk riskLevel={floodRisk.level} />}
                 </View>
 
                 <View style={styles.results}>
