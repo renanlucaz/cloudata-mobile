@@ -7,15 +7,15 @@ import { Colors } from "@/src/constants/Colors";
 
 export default function TabLayout() {
     return (
-        <Tabs screenOptions={{ 
+        <Tabs screenOptions={{
             tabBarLabelStyle: { fontSize: 14 },
             headerShown: false,
             tabBarActiveTintColor: Colors.primary,
             tabBarStyle: {
-                height: 90,
-                padding: 0
+                height: 65,
+                paddingBottom: 5
             },
-         }}>
+        }}>
             <Tabs.Screen
                 name="dashboard"
                 options={{
@@ -28,7 +28,7 @@ export default function TabLayout() {
                 name="previsions"
                 options={{
                     title: 'Previsões',
-                    tabBarIcon: ({ color }) => <Feather name="list" size={24} color={color}  />,
+                    tabBarIcon: ({ color }) => <Feather name="list" size={24} color={color} />,
                 }}
             />
             <Tabs.Screen
@@ -42,7 +42,7 @@ export default function TabLayout() {
                 name="profile"
                 options={{
                     title: 'Perfil',
-                    tabBarIcon: ({ color }) => <Ionicons name="person" size={22} color={color}/>,
+                    tabBarIcon: ({ color }) => <Ionicons name="person" size={22} color={color} />,
                 }}
             />
         </Tabs>

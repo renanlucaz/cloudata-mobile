@@ -5,6 +5,7 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
     container: {
         backgroundColor: Colors.primary,
+        paddingTop: 20,
         flex: 1,
     },
     content: {

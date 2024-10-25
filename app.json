@@ -33,7 +33,17 @@
       [
         "expo-font",
         {
-          "fonts": ["./assets/fonts/Inter-Regular.ttf"]
+          "fonts": [
+            "./assets/fonts/Inter-Regular.ttf"
+          ]
+        }
+      ],
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "usesCleartextTraffic": true
+          }
         }
       ]
     ],

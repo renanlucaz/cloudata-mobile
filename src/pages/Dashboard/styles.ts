@@ -4,6 +4,7 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
     container: {
         backgroundColor: Colors.primary,
+        paddingTop: 15
     },
     content: {
         backgroundColor: Colors.background,
@@ -48,14 +49,14 @@ export const styles = StyleSheet.create({
         fontWeight: "700"
     },
     progressBarContainer: {
-        flex: 1, 
-        flexDirection: "row", 
-        alignItems: "center", 
-        minWidth: "100%" ,
+        flex: 1,
+        flexDirection: "row",
+        alignItems: "center",
+        minWidth: "100%",
         paddingVertical: 25
     },
     progressBar: {
-        
+
     },
     percentual: {
         position: "absolute",
