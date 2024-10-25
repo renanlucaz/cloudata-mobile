@@ -27,7 +27,8 @@ export const styles = StyleSheet.create({
     },
     loginTitle: {
         fontSize: 18,
-        fontWeight: "700"
+        fontWeight: "700",
+        marginTop: 30
     },
     loginDescription: {
         marginTop: 5,
@@ -39,8 +40,8 @@ export const styles = StyleSheet.create({
         marginTop: 24
     },
     terms: {
-       marginTop: 42, 
-       alignItems: "center"
+        marginTop: 42,
+        alignItems: "center"
     },
     termsText: {
         color: "#828282",

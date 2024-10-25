@@ -19,7 +19,7 @@ export const styles = StyleSheet.create({
     },
     menu: {
         position: "absolute",
-        top: 20,
+        top: 28,
         left: 20,
     }
 })

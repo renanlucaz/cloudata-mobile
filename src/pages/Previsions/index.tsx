@@ -38,29 +38,31 @@ export function PrevisionsPage() {
                     <Select options={addressList} selectedOption={selectedOption} setSelectedOption={setSelectedOption} />
                 </View>
 
-                <View style={styles.floodRisk}>
-                    {isFloodRiskLoading && <ActivityIndicator color={Colors.primary} style={{ marginBottom: 20 }} />}
-                    {floodRisk?.level > 1 && <FloodRisk riskLevel={floodRisk.level} />}
-                </View>
+                <ScrollView style={{ paddingBottom: 20 }}>
+                    <View style={styles.floodRisk}>
+                        {isFloodRiskLoading && <ActivityIndicator color={Colors.primary} style={{ marginBottom: 20 }} />}
+                        {floodRisk?.level > 1 && <FloodRisk riskLevel={floodRisk.level} />}
+                    </View>
 
-                <View style={styles.results}>
-                    <View style={styles.line} />
-                    <Text style={styles.resultsText}>
-                        Previsões de chuva
-                    </Text>
-                    <View style={styles.line} />
-                </View>
+                    <View style={styles.results}>
+                        <View style={styles.line} />
+                        <Text style={styles.resultsText}>
+                            Previsões de chuva
+                        </Text>
+                        <View style={styles.line} />
+                    </View>
 
-                <ScrollView style={styles.list} showsVerticalScrollIndicator={false}>
-                    {isFetching ? (
-                        <ActivityIndicator color="#fff" />
-                    ) : (
-                        <>
-                            {meteorologicRecords?.map((record: any) => (
-                                <RiskCard key={record.id} record={record} />
-                            ))}
-                        </>
-                    )}
+                    <View style={styles.list} showsVerticalScrollIndicator={false}>
+                        {isFetching ? (
+                            <ActivityIndicator color="#fff" />
+                        ) : (
+                            <View style={{ gap: 10 }}>
+                                {meteorologicRecords?.map((record: any) => (
+                                    <RiskCard key={record.id} record={record} />
+                                ))}
+                            </View>
+                        )}
+                    </View>
                 </ScrollView>
             </View>
         </SafeAreaView>

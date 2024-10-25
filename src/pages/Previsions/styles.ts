@@ -28,6 +28,7 @@ export const styles = StyleSheet.create({
     list: {
         marginHorizontal: 20,
         marginTop: 15,
+        paddingBottom: 20
     },
     line: {
         borderWidth: 0.5,

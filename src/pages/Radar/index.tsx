@@ -17,6 +17,7 @@ export function RadarPage() {
         longitudeDelta: 0.0421,
     });
 
+
     const handleSelectPlace = (data, details) => {
         const { lat, lng } = details.geometry.location;
         setRegion({
@@ -38,6 +39,9 @@ export function RadarPage() {
             color
         })
     })
+
+    console.log(alerts)
+
 
     return (
         <SafeAreaView style={styles.container}>
@@ -65,8 +69,9 @@ export function RadarPage() {
                 {alerts?.map(alert => (
                     <Circle
                         center={{
-                            latitude: alert.latitude,
-                            longitude: alert.longitude,
+                            latitude: parseFloat(alert.latitude),
+                            longitude: parseFloat(alert.longitude),
+
                         }}
                         radius={800}
                         key={alert.latitude}
